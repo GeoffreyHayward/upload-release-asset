@@ -1,0 +1,22 @@
+#
+# A demo workflow that runs on tags that start with "v" for version.
+#
+# In this type of workflow you may build pre-release documentation websites ect.
+#
+name: Version Actions Workflow
+
+on:
+  push:
+    tags:
+      - v*
+
+jobs:
+
+  demo_steps:
+    name: "Demo Steps"
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Hello World
+        run: echo "Hello, from Demo. Check out relase actions workflow it's way more exciting."

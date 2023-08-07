@@ -1,0 +1,59 @@
+name: Release Actoins Workflow
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  #
+  # Demo build steps
+  #
+  build_stage:
+    name: "Demo Build"
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Pretend to Build
+        run: echo "Pretend to build something here."
+
+      - name: Archive dist artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: demo-artifacts
+          path: dist/
+
+
+  add_assets_to_release:
+    name: "Add the Release Assets"
+    needs:
+      - build_stage
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Download all workflow artifacts
+        uses: actions/download-artifact@v3
+        id: download
+        with:
+          path: demo-artifacts
+
+      - name: Zip Demo Distribution
+        run: |
+          echo ${{ github.ref_name }} > version
+          zip -r ../assets.zip .
+        working-directory: ${{steps.download.outputs.download-path}}/demo-artifacts
+
+      #
+      # This is the bit to replace with API calls
+      #
+      - name: Upload Homepage Dist Zip
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ github.event.release.upload_url }}
+          asset_path: ${{steps.download.outputs.download-path}}/demo-dist.zip
+          asset_name: demo-dist-${{ github.ref_name }}.zip
+          asset_content_type: application/zip
