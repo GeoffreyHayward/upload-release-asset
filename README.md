@@ -1,6 +1,8 @@
 # Upload a Release Asset
 A demo project of a GitHub Workflow that attaches release assets to a release.
 
+![Screenshot](demo-screenshot.png)
+
 Since [actions/upload-release-asset@v1](https://github.com/actions/upload-release-asset) has been archived and is stuck on node12 (now deprecated), I have created this demo to show how to do-it-yourself with the GitHub API from within your own workflow.
 
 Hopefully, as still working on it.
@@ -31,3 +33,5 @@ To create a release, a version must first be tagged and pushed. Once pushed the 
 Next, enter a release title (typically the version number) and a description of the changes - this should include any breaking changes and migration information.
 
 Once the release has been created release assets will be automatically built and attached to the release. 
+
+Note: The  GITHUB_TOKEN must have read and write access to the repository for this to work.
