@@ -39,11 +39,15 @@ jobs:
         with:
           path: demo-artifacts
 
+      - run: ls -la ${{steps.download.outputs.download-path}}/demo-artifacts
+
       - name: Zip Demo Distribution
         run: |
           echo ${{ github.ref_name }} > version
           zip -r ../assets.zip .
         working-directory: ${{steps.download.outputs.download-path}}/demo-artifacts
+
+      - run: ls -la ${{steps.download.outputs.download-path}}/demo-artifacts
 
       #
       # This is the bit to replace with API calls
