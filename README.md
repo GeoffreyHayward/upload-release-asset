@@ -6,3 +6,28 @@ Since [actions/upload-release-asset@v1](https://github.com/actions/upload-releas
 Hopefully, as still working on it.
 
 Feel free to submit improvements. 
+
+
+## Versioning & Releasing
+
+As releasing builds on versioning, first create a version, then if the version is okay - release it.
+
+### Versioned deployments
+
+To deploy a new version of the demo (as if it was something useful), a tag should be created following [semantic versioning](https://semver.org/) rules and prefixed with "v". Eg, "v1.0.2-beta".
+
+Once pushed, the distribution workflow will run (just a demo run).
+
+For example, tag "v1.0.2-beta" could create resources such as documentation websites for the tag.
+
+Release versions should always be created from the main "trunk" branch.
+
+### Releases
+
+In this demo releases are created from the Github Release page. Then this demo will build and attach assets to the release.
+
+To create a release, a version must first be tagged and pushed. Once pushed the tag can be selected from the new release page.
+
+Next, enter a release title (typically the version number) and a description of the changes - this should include any breaking changes and migration information.
+
+Once the release has been created release assets will be automatically built and attached to the release. 
