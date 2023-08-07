@@ -7,12 +7,14 @@ Since [actions/upload-release-asset@v1](https://github.com/actions/upload-releas
 
 Hopefully, as still working on it.
 
-Feel free to submit improvements. 
+For an idea of how this is used, see [Versioning & Releasing](#Versioning-&-Releasing).
+
+Please feel free to submit any improvements. 
 
 
 ## Versioning & Releasing
 
-As releasing builds on versioning, first create a version, then if the version is okay - release it.
+As releasing builds on versioning, first create a version, then release it if the version is okay.
 
 ### Versioned deployments
 
