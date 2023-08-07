@@ -7,7 +7,7 @@ Since [actions/upload-release-asset@v1](https://github.com/actions/upload-releas
 
 Hopefully, as still working on it.
 
-For an idea of how this is used, see [Versioning & Releasing](#Versioning-&-Releasing).
+For an idea of how this is used, see [Versioning & Releasing](#Versioning--Releasing).
 
 Please feel free to submit any improvements. 
 
