@@ -39,35 +39,16 @@ jobs:
         with:
           path: all-artifacts
 
-      - run: ls -la ${{steps.download.outputs.download-path}}/demo-artifact
-
       - name: Zip Demo Distribution
         run: |
           echo ${{ github.ref_name }} > version
           zip -r ../demo-asset.zip .
         working-directory: ${{steps.download.outputs.download-path}}/demo-artifact
 
-      - run: ls -la ${{steps.download.outputs.download-path}}/demo-artifact
-
-      - run: ls -la ${{steps.download.outputs.download-path}}
-
-      #
-      # This is the bit to replace with API calls
-      #
-      - name: Upload Homepage Dist Zip
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ github.event.release.upload_url }}
-          asset_path: ${{steps.download.outputs.download-path}}/demo-asset.zip
-          asset_name: demo-dist-${{ github.ref_name }}.zip
-          asset_content_type: application/zip
-
       # API Documentation https://docs.github.com/en/rest/releases/assets?apiVersion=2022-11-28#upload-a-release-asset
       - name: Upload Asset
         run: |
-          url=$(echo "${{ github.event.release.upload_url }}?name=example.zip" | sed -e 's/{[^}]*}//')
+          url=$(echo "${{ github.event.release.upload_url }}?name=demo-dist-${{ github.ref_name }}.zip" | sed -e 's/{[^}]*}//')
           echo $url
           curl \
           -H "Accept: application/vnd.github+json" \
@@ -77,3 +58,14 @@ jobs:
           -X POST ${url} \
           --data-binary "@demo-asset.zip"
         working-directory: ${{steps.download.outputs.download-path}}
+
+
+  ship_it:
+    name: "Add the Release Assets"
+    needs:
+      - build_stage
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Pretend to ship it
+        run: echo "Pretending to ship it. Bon Voyage!"
