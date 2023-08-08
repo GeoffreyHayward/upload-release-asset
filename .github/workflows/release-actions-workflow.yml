@@ -49,7 +49,6 @@ jobs:
       - name: Upload Asset
         run: |
           url=$(echo "${{ github.event.release.upload_url }}?name=demo-dist-${{ github.ref_name }}.zip" | sed -e 's/{[^}]*}//')
-          echo $url
           curl \
           -H "Accept: application/vnd.github+json" \
           -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
@@ -61,7 +60,7 @@ jobs:
 
 
   ship_it:
-    name: "Add the Release Assets"
+    name: "Ship It!"
     needs:
       - build_stage
     runs-on: ubuntu-latest

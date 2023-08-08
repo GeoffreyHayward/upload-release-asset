@@ -5,8 +5,6 @@ A demo project of a GitHub Workflow that attaches release assets to a release.
 
 Since [actions/upload-release-asset@v1](https://github.com/actions/upload-release-asset) has been archived and is stuck on node12 (now deprecated), I have created this demo to show how to do-it-yourself with the GitHub API from within your own workflow.
 
-Hopefully, as still working on it.
-
 For an idea of how this is used, see [Versioning & Releasing](#Versioning--Releasing).
 
 Please feel free to submit any improvements. 
@@ -24,9 +22,12 @@ Once pushed, the distribution workflow will run (just a demo run).
 
 For example, tag "v1.0.2-beta" could create resources such as documentation websites for the tag.
 
-Release versions should always be created from the main "trunk" branch.
 
 ### Releases
+
+| Note |
+| ---- |
+| Releasable versions should always be created from the main "trunk" branch. |
 
 In this demo releases are created from the Github Release page. Then this demo will build and attach assets to the release.
 
