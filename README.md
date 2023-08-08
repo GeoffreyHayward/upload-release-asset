@@ -26,7 +26,7 @@ For example, tag "v1.0.2-beta" could create resources such as documentation webs
 ### Releases
 
 | Note |
-| ---- |
+| :--- |
 | Releasable versions should always be created from the main "trunk" branch. |
 
 In this demo releases are created from the Github Release page. Then this demo will build and attach assets to the release.
