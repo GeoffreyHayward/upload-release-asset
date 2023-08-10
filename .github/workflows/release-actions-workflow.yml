@@ -100,7 +100,7 @@ jobs:
   ship_it:
     name: "Ship It!"
     needs:
-      - get_the_assets
+      - add_assets_to_release # Just for demo purposes, because in this context this step could have been run in parallel.
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
