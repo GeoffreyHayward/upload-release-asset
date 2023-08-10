@@ -1,0 +1,26 @@
+{
+  "message": "Validation Failed",
+  "request_id": "6CC1:0A5D:D4A6F:FEAAE:64D4F054",
+  "documentation_url": "https://docs.github.com/rest",
+  "errors": [
+    {
+      "resource": "ReleaseAsset",
+      "code": "custom",
+      "field": "size",
+      "message": "size must be greater than or equal to 1"
+    }
+  ]
+}
+{
+  "message": "Validation Failed",
+  "request_id": "6CC1:0A5D:D4A6F:FEAAE:64D4F054",
+  "documentation_url": "https://docs.github.com/rest",
+  "errors": [
+    {
+      "resource": "ReleaseAsset",
+      "code": "custom",
+      "field": "size",
+      "message": "size must be greater than or equal to 1"
+    }
+  ]
+}
