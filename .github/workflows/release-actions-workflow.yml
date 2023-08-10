@@ -61,8 +61,8 @@ jobs:
         uses: ./.github/actions/upload-release-asset
         with:
           upload_url: ${{ github.event.release.upload_url }}
-          asset: demo-asset.zip
-          asset_directory: ${{steps.download.outputs.download-path}}
+          upload_url_token: ${{ secrets.GITHUB_TOKEN }}
+          asset: ${{steps.download.outputs.download-path}}/demo-asset.zip
           asset_name: demo-dist-${{ github.ref_name }}.zip
 
 
