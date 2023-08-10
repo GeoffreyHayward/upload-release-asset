@@ -31,7 +31,7 @@ runs:
         url=$(echo "${{ inputs.upload_url }}?name=${{ inputs.asset_name }}" | sed -e 's/{[^}]*}//')
         response=$(curl \
         -H "Accept: application/vnd.github+json" \
-        -H "Authorization: Bearer ${{ env.upload_url_token }}" \
+        -H "Authorization: Bearer ${{ inputs.upload_url_token }}" \
         -H "X-GitHub-Api-Version: 2022-11-28" \
         -H "Content-Type: application/octet-stream" \
         -X POST ${url} \
