@@ -74,7 +74,7 @@ jobs:
           upload_url: ${{ github.event.release.upload_url }}
           upload_url_token: ${{ secrets.GITHUB_TOKEN }}
           asset_path: ${{steps.download.outputs.download-path}}/license/LICENSE
-          asset_name: LICENSE.txt
+          asset_name: LICENSE
           asset_content_type: text/plain
 
 
