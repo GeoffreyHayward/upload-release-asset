@@ -62,7 +62,7 @@ jobs:
         with:
           upload_url: ${{ github.event.release.upload_url }}
           upload_url_token: ${{ secrets.GITHUB_TOKEN }}
-          asset: ${{steps.download.outputs.download-path}}/demo-asset.zip
+          asset_path: ${{steps.download.outputs.download-path}}/demo-asset.zip
           asset_name: demo-dist-${{ github.ref_name }}.zip
 
 
