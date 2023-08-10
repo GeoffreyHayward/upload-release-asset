@@ -79,14 +79,14 @@ jobs:
 
       # Archived the responses as they could be very useful in a real shipping step, hence it's included in this demo.
       - name: Save the GitHub API response to file (upload-release-asset)
-        run: echo ${{ steps.upload_release_asset.outputs.response }} | jq '.' > upload-release-asset-response.json
+        run: echo '${{ steps.upload_release_asset.outputs.response }}' | jq '.' > upload-release-asset-response.json
       - name: Archive Response (upload-release-asset)
         uses: actions/upload-artifact@v3
         with:
           name: upload-release-asset-response.json
           path: upload-release-asset-response.json
       - name: Save the GitHub API response to file (LICENSE)
-        run: echo ${{ steps.upload_license.outputs.response }} | jq '.' > upload_license-response.json
+        run: echo '${{ steps.upload_license.outputs.response }}' | jq '.' > upload_license-response.json
       - name: Archive Response (LICENSE)
         uses: actions/upload-artifact@v3
         with:
