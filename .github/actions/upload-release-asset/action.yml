@@ -1,0 +1,40 @@
+name: Upload Release Asset
+description: Uploads a release asset to a repository using the GitHub API from the caller's working directory.
+
+inputs:
+  upload_url:
+    description: 'The GitHub release URL for uploading assets to.'
+    required: true
+  upload_url_token:
+    description: 'The GitHub API bearer token to use when uploading the asset.'
+    required: true
+    default: ${{ ${{ secrets.GITHUB_TOKEN }} }}
+  asset:
+    description: 'The file name of the asset to upload.'
+    required: true
+  asset_name:
+    description: 'The name of the asset after it has been upload.'
+    required: true
+
+outputs:
+  response:
+    description: "The JSON response from the GitHub API."
+    value: ${{ steps.upload_release_asset.outputs.response }}
+
+runs:
+  using: "composite"
+  steps:
+
+    # API Documentation https://docs.github.com/en/rest/releases/assets?apiVersion=2022-11-28#upload-a-release-asset
+    - id: upload_release_asset
+      run: |
+        url=$(echo "${{ inputs.upload_url }}?name=${{ inputs.asset_name }}" | sed -e 's/{[^}]*}//')
+        response=$(curl \
+        -H "Accept: application/vnd.github+json" \
+        -H "Authorization: Bearer ${{ env.TOKEN }}" \
+        -H "X-GitHub-Api-Version: 2022-11-28" \
+        -H "Content-Type: application/octet-stream" \
+        -X POST ${url} \
+        --data-binary "@${{ inputs.asset }}")
+        echo "respones=$respones" >> $GITHUB_OUTPUT
+      shell: bash
