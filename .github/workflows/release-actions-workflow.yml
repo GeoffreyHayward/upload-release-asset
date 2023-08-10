@@ -91,8 +91,8 @@ jobs:
       - name: Archive Response (LICENSE)
         uses: actions/upload-artifact@v3
         with:
-          name: upload_license-response.json
-          path: upload_license-response.json
+          name: upload-license-response.json
+          path: upload-license-response.json
 
 
   #
