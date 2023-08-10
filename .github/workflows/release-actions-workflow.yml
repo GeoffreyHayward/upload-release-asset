@@ -73,8 +73,8 @@ jobs:
         with:
           upload_url: ${{ github.event.release.upload_url }}
           upload_url_token: ${{ secrets.GITHUB_TOKEN }}
-          asset_path: ${{steps.download.outputs.download-path}}/upload-release-asset.zip
-          asset_name: LICENSE
+          asset_path: ${{steps.download.outputs.download-path}}/LICENSE
+          asset_name: LICENSE.txt
 
 
       # Archived the responses as they could be very useful in a real shipping step, hence it's included in this demo.
