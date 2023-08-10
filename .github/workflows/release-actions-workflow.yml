@@ -26,7 +26,7 @@ jobs:
       - name: Archive the repostiroy's LICENSE
         uses: actions/upload-artifact@v3
         with:
-          name: LICENSE
+          name: license
           path: LICENSE
 
 
@@ -73,7 +73,7 @@ jobs:
         with:
           upload_url: ${{ github.event.release.upload_url }}
           upload_url_token: ${{ secrets.GITHUB_TOKEN }}
-          asset_path: ${{steps.download.outputs.download-path}}/LICENSE
+          asset_path: ${{steps.download.outputs.download-path}}/license/LICENSE
           asset_name: LICENSE.txt
           asset_content_type: text/plain
 
