@@ -33,7 +33,7 @@ jobs:
   add_assets_to_release:
     name: "Add the Release Assets"
     needs:
-      - build_stage # Wait for all build jobs to complete. In this demo just one.
+      - get_the_assets # Wait for all build jobs to complete. In this demo just one.
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -100,7 +100,7 @@ jobs:
   ship_it:
     name: "Ship It!"
     needs:
-      - build_stage
+      - get_the_assets
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
