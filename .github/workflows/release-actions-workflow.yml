@@ -62,8 +62,8 @@ jobs:
         with:
           upload_url: ${{ github.event.release.upload_url }}
           asset: demo-asset.zip
+          asset_directory: ${{steps.download.outputs.download-path}}
           asset_name: demo-dist-${{ github.ref_name }}.zip
-        working-directory: ${{steps.download.outputs.download-path}}
 
 
       # This archived response could be very useful in a real shipping step, hence it's included in this demo.
