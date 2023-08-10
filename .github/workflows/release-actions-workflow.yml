@@ -24,10 +24,10 @@ jobs:
           path: .github/actions/
 
       - name: Archive the repostiroy's LICENSE
-          uses: actions/upload-artifact@v3
-          with:
-            name: LICENSE
-            path: LICENSE
+        uses: actions/upload-artifact@v3
+        with:
+          name: LICENSE
+          path: LICENSE
 
 
   add_assets_to_release:
