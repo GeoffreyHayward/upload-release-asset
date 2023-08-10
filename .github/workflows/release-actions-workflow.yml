@@ -67,9 +67,6 @@ jobs:
           asset_path: ${{steps.download.outputs.download-path}}/upload-release-asset.zip
           asset_name: upload-release-asset-${{ github.ref_name }}.zip
 
-      - run: |
-          ls ${{steps.download.outputs.download-path}}
-
       - name: Upload LICENSE
         id: upload_license
         uses: ./.github/actions/upload-release-asset
