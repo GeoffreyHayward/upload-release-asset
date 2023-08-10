@@ -68,13 +68,13 @@ jobs:
           asset_name: upload-release-asset-${{ github.ref_name }}.zip
 
       - name: Upload LICENSE
-          id: upload_license
-          uses: ./.github/actions/upload-release-asset
-          with:
-            upload_url: ${{ github.event.release.upload_url }}
-            upload_url_token: ${{ secrets.GITHUB_TOKEN }}
-            asset_path: ${{steps.download.outputs.download-path}}/upload-release-asset.zip
-            asset_name: LICENSE
+        id: upload_license
+        uses: ./.github/actions/upload-release-asset
+        with:
+          upload_url: ${{ github.event.release.upload_url }}
+          upload_url_token: ${{ secrets.GITHUB_TOKEN }}
+          asset_path: ${{steps.download.outputs.download-path}}/upload-release-asset.zip
+          asset_name: LICENSE
 
 
       # Archived the responses as they could be very useful in a real shipping step, hence it's included in this demo.
