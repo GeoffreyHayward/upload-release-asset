@@ -78,6 +78,7 @@ jobs:
           upload_url_token: ${{ secrets.GITHUB_TOKEN }}
           asset_path: ${{steps.download.outputs.download-path}}/LICENSE
           asset_name: LICENSE.txt
+          asset_content_type: text/plain
 
 
       # Archived the responses as they could be very useful in a real shipping step, hence it's included in this demo.
@@ -89,7 +90,7 @@ jobs:
           name: upload-release-asset-response.json
           path: upload-release-asset-response.json
       - name: Save the GitHub API response to file (LICENSE)
-        run: echo '${{ steps.upload_license.outputs.response }}' | jq '.' > upload_license-response.json
+        run: echo '${{ steps.upload_license.outputs.response }}' | jq '.' > upload-license-response.json
       - name: Archive Response (LICENSE)
         uses: actions/upload-artifact@v3
         with:
