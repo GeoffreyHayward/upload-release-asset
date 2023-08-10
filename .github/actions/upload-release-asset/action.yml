@@ -57,8 +57,5 @@ runs:
         -H "Content-Type: application/octet-stream" \
         -X POST ${url} \
         --data-binary "@$(basename ${{ inputs.asset_path }})")
-        echo $response
-        echo $response | jq '.'
-        response=$(echo $response | jq '.')
         echo "response=$response" >> $GITHUB_OUTPUT
       shell: bash
