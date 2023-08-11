@@ -26,9 +26,6 @@ inputs:
   upload_url:
     description: 'The GitHub release URL for uploading assets to.'
     required: true
-  upload_url_token:
-    description: 'The GitHub bearer token to use for uploading the asset.'
-    required: true
   asset_path:
     description: 'The asset to be upload.'
     required: true
