@@ -20,7 +20,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 name: Upload Release Asset
-description: Uploads a release asset to a repository using the GitHub API from the caller's working directory.
+description: Uploads a release asset to a repository using the GitHub API.
 
 inputs:
   upload_url:
