@@ -3,7 +3,7 @@ A production-ready GitHub Composable Action that uploads assets to a release.
 
 ![Screenshot](demo-screenshot.png)
 
-Since [actions/upload-release-asset@v1](https://github.com/actions/upload-release-asset) has been archived and is stuck on node12 (now deprecated), I created this GitHub Action to do the same job but using only the GitHub API via CRUL (no fancy OctoScript).
+Since [actions/upload-release-asset@v1](https://github.com/actions/upload-release-asset) has been archived and is stuck on node12 (now deprecated), I created this GitHub Action to do the same job but using only the GitHub API via CRUL.
 
 I have kept the actions/upload-release-asset@v1's interface to make migration easier, but I have had to add a required bearer token. 
 
