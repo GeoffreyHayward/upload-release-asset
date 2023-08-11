@@ -1,5 +1,5 @@
 # Upload Release Asset
-A production-ready GitHub Composable Action that uploads assets to a release.  
+A production-ready GitHub Composable Action that automatically uploads assets to a release.  
 
 ![Screenshot](demo-screenshot.png)
 
@@ -29,25 +29,25 @@ As releasing builds on versioning, first create a version, then release it if th
 
 ### Versioned deployments
 
-To deploy a new version of the demo (as if it was something useful), a tag should be created following [semantic versioning](https://semver.org/) rules and prefixed with "v". Eg, "v1.0.2-beta".
+To deploy a new version, a tag should be created following [semantic versioning](https://semver.org/) rules and prefixed with "v". Eg, "v1.0.2-beta".
 
-Once pushed, the distribution workflow will run (just a demo run).
+Once pushed, the distribution workflow will run (just a demo run in this project).
 
 For example, tag "v1.0.2-beta" could create resources such as documentation websites for the tag.
 
 
 ### Releases
 
-| Note |
-| :--- |
+In this project, releases are first created from the Github Release page. Then this will trigger the `.github/workflows/release-actions-workflow.yml` workflow, automatically attaching the following assets to the release.
+
+- LICENSE
+- upload-release-asset.zip
+
 | Releasable versions should always be created from the main "trunk" branch. |
+| :--- |
 
-In this demo releases are created from the Github Release page. Then this demo will build and attach assets to the release.
-
-To create a release, a version must first be tagged and pushed. Once pushed the tag can be selected from the new release page.
+To create a release, a version must first be tagged and pushed. Once pushed, the tag can be selected from the new release page.
 
 Next, enter a release title (typically the version number) and a description of the changes - this should include any breaking changes and migration information.
 
-Once the release has been created release assets will be automatically built and attached to the release. 
-
-Note: The  GITHUB_TOKEN must have read and write access to the repository for this to work.
+Note that the `GITHUB_TOKEN` must have read and write access to the repository.
