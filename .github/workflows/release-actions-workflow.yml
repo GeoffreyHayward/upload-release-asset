@@ -61,18 +61,20 @@ jobs:
       - name: Upload 'upload-release-asset'
         id: upload_release_asset
         uses: ./.github/actions/upload-release-asset
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ github.event.release.upload_url }}
-          upload_url_token: ${{ secrets.GITHUB_TOKEN }}
           asset_path: ${{steps.download.outputs.download-path}}/upload-release-asset.zip
           asset_name: upload-release-asset-${{ github.ref_name }}.zip
 
       - name: Upload LICENSE
         id: upload_license
         uses: ./.github/actions/upload-release-asset
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ github.event.release.upload_url }}
-          upload_url_token: ${{ secrets.GITHUB_TOKEN }}
           asset_path: ${{steps.download.outputs.download-path}}/license/LICENSE
           asset_name: LICENSE
           asset_content_type: text/plain
