@@ -1,7 +1,7 @@
 # Upload Release Asset
 A production-ready GitHub Composable Action that automatically uploads assets to a release.  
 
-![Screenshot](demo-screenshot.png)
+![Screenshot](release-screenshot.png)
 
 Since [actions/upload-release-asset@v1](https://github.com/actions/upload-release-asset) has been archived and is stuck on node12 (now deprecated), I created this GitHub Action to do the same job but using only the GitHub API via CRUL.
 
